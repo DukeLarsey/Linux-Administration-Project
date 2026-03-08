@@ -8,6 +8,7 @@ The company does not have a dedicated Linux administrator. Multiple employees sh
 
 ### Linux Admin Role
 In this project we are acting as a Junior Linux Administrator charged with stabilising and securing the environment. Our main responsibilities are to: understand and navigate the Linux environment, organise the system and directory structure, configure user and group management, manage permissions, monitor system health, and automate basic tasks using Linux command-line tools and shell scripting.
+
 <br>
 
 # Execution:
@@ -18,6 +19,7 @@ In this project we are acting as a Junior Linux Administrator charged with stabi
 echo $SHELL
 ```
 ![alt text](<assets/images/1 view current shell.png>)
+
 <br>
 
 2. To install fish shell, run the following commands:
@@ -42,6 +44,7 @@ $ sudo chsh -s /usr/local/bin/fish
 $ chsh --shell /usr/bin/fish username
 This sets Fish Shell as the Default Shell.
 ```
+
 <br>
 
 ![alt text](<assets/images/2 install fish shell.png>)
@@ -51,18 +54,22 @@ This sets Fish Shell as the Default Shell.
 ![alt text](<assets/images/6 fish shell installed.png>)
 
 3. Restart the machine.
+
 <br>
 
 4. Open terminal
+
 <br>
 
 5. If fish is correctly installed you will see something like “Welcome to fish, the friendly interactive shell. Type help for instructions on how to use fish”
+
 <br>
 
 6. You can also check with
 ```bash
 echo $SHELL 
 ```
+
 <br>
 
 ### System discovery
@@ -113,7 +120,10 @@ df -h
 ```bash
 free -m
 ``` 
- 
+
+![alt text](<assets/images/7 system discovery.png>)
+![alt text](<assets/images/8 system discovery.png>)
+
 <br>
 
 ### Company directory structure
@@ -198,6 +208,13 @@ ls -R company
 rm -r directory_name
 ```
 
+![alt text](<assets/images/9 company directory structure.png>)
+![alt text](<assets/images/10 install tree.png>)
+![alt text](<assets/images/11 company directory structure.png>)
+![alt text](<assets/images/12 company directory structure.png>)
+![alt text](<assets/images/13 company directory structure.png>)
+![alt text](<assets/images/14 create and verify department groups.png>)
+
 <br>
 
 ### User and Group management
@@ -257,6 +274,7 @@ sudo groupdel groupname
 ```bash
 getent group
 ``` 
+![alt text](<assets/images/14 create and verify department groups.png>)
 
 <br>
 
@@ -387,6 +405,10 @@ sudo passwd Finance_WilliamSkinner
 ```bash
 id “userAccountName”
 ```
+![alt text](<assets/images/15 user accounts and access control set up.png>)
+![alt text](<assets/images/16 user accounts and access control set up.png>)
+![alt text](<assets/images/17 user accounts and access control set up.png>)
+![alt text](<assets/images/18 Additional group access config.png>)
 
 <br>
 
@@ -410,11 +432,13 @@ This command adds the user IT_Admin to the management group without removing the
 ```bash
 groups IT_Admin
 ```
+![alt text](<assets/images/18 Additional group access config.png>)
 
 <br>
 
 ### Directory structure
 After successfully completing these steps, we should have a company directory structure like so:
+![alt text](<assets/images/18 company directory structure.png>)
 
 <br>
 
@@ -473,6 +497,9 @@ ls -l company/departments
 ls -l company
 ```
 
+![alt text](<assets/images/19 Permissions.png>)
+![alt text](<assets/images/20 verifying permissions.png>)
+
 <br>
 
 ### System monitoring
@@ -492,6 +519,11 @@ ps aux
 ```bash
 df -h
 ``` 
+![alt text](<assets/images/21 install htop.png>)
+![alt text](<assets/images/22 htop.png>)
+![alt text](<assets/images/23 ps aux.png>)
+![alt text](<assets/images/24 ps aux.png>)
+![alt text](<assets/images/25 df -h.png>)
 
 <br>
 
@@ -500,6 +532,7 @@ df -h
 ```bash
 ls /var/log
 ```
+![alt text](<assets/images/26 log.png>)
 
 <br>
 
