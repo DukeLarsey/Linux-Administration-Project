@@ -8,7 +8,6 @@ The company does not have a dedicated Linux administrator. Multiple employees sh
 
 ### Linux Admin Role
 In this project we are acting as a Junior Linux Administrator charged with stabilising and securing the environment. Our main responsibilities are to: understand and navigate the Linux environment, organise the system and directory structure, configure user and group management, manage permissions, monitor system health, and automate basic tasks using Linux command-line tools and shell scripting.
-
 <br>
 
 # Execution:
@@ -18,7 +17,8 @@ In this project we are acting as a Junior Linux Administrator charged with stabi
 ```bash
 echo $SHELL
 ```
-![alt text](assets/images/1_view_current_shell.png)
+![alt text](<assets/images/1 view current shell.png>)
+<br>
 
 2. To install fish shell, run the following commands:
 ```bash
@@ -42,19 +42,27 @@ $ sudo chsh -s /usr/local/bin/fish
 $ chsh --shell /usr/bin/fish username
 This sets Fish Shell as the Default Shell.
 ```
+<br>
 
+![alt text](<assets/images/2 install fish shell.png>)
+![alt text](<assets/images/3 install fish shell.png>)
+![alt text](<assets/images/4 install fish shell.png>)
+![alt text](<assets/images/5 install fish shell.png>)
+![alt text](<assets/images/6 fish shell installed.png>)
 
 3. Restart the machine.
+<br>
 
 4. Open terminal
+<br>
 
 5. If fish is correctly installed you will see something like “Welcome to fish, the friendly interactive shell. Type help for instructions on how to use fish”
+<br>
 
 6. You can also check with
 ```bash
 echo $SHELL 
 ```
-
 <br>
 
 ### System discovery
