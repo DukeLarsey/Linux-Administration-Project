@@ -325,8 +325,9 @@ getent group
 
 -g sets the user's primary group to the specified group.  
 
-sudo passwd sets their password.  
+sudo passwd sets their password.
 
+<br>
 
 1. Management accounts
 ```bash
