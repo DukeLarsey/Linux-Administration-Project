@@ -54,7 +54,6 @@ This sets Fish Shell as the Default Shell.
 ![alt text](<assets/images/3 install fish shell.png>)
 ![alt text](<assets/images/4 install fish shell.png>)
 ![alt text](<assets/images/5 install fish shell.png>)
-![alt text](<assets/images/6 fish shell installed.png>)
 
 3. Restart the machine.
 
@@ -72,6 +71,7 @@ This sets Fish Shell as the Default Shell.
 ```bash
 echo $SHELL 
 ```
+![alt text](<assets/images/6 fish shell installed.png>)
 
 <br>
 
@@ -321,9 +321,12 @@ getent group
 
 ### Create user accounts for the employees in the various departments:
 
--m creates the user's home directory if it does not exist.
--g sets the user's primary group to the specified group.
-sudo passwd sets their password.
+-m creates the user's home directory if it does not exist.  
+
+-g sets the user's primary group to the specified group.  
+
+sudo passwd sets their password.  
+
 
 1. Management accounts
 ```bash
@@ -491,6 +494,9 @@ groups IT_Admin
 
 ### Directory structure
 After successfully completing these steps, we should have a company directory structure like so:
+
+<br>
+
 ![alt text](<assets/images/18 company directory structure.png>)
 
 <br>
@@ -512,11 +518,11 @@ sudo chmod 770 company/departments/IT
 ```bash
 sudo chmod 770 company/departments/Finance
 ```
-The purpose of this command is to restrict access so that only the owner and members of the group can read, write, and execute files in the specified directories. 
-770 means:
-Owner (user): Read (4), Write (2), Execute (1) → 4+2+1 = 7
-Group: Read (4), Write (2), Execute (1) → 4+2+1 = 7
-Others (everyone else): No access → 0 
+The purpose of this command is to restrict access so that only the owner and members of the group can read, write, and execute files in the specified directories.  
+770 means:  
+Owner (user): Read (4), Write (2), Execute (1) → 4+2+1 = 7  
+Group: Read (4), Write (2), Execute (1) → 4+2+1 = 7  
+Others (everyone else): No access → 0  
 So, after running these commands the owner of each directory (company/departments/Sales, /Marketing, etc.) can fully access and modify the contents. Group members can also read, write, and enter the directories. All other users cannot access, view, or modify any files or subdirectories within these directories. This is commonly used to secure department-specific folders in a shared environment where only authorized users (owner and group) should have access.
 
 <br>
@@ -526,10 +532,10 @@ So, after running these commands the owner of each directory (company/department
 sudo chmod 775 company/shared
 ```
 This command changes the permissions of the company/shared directory and all its contents to allow read, write, and execute access for the owner and the group, while also granting read and execute access to others. 
-775 means:
-7 (owner): read (4) + write (2) + execute (1) = full access. 
-7 (group): same as owner. 
-5 (others): read (4) + execute (1) = can view and run files, but not modify them. 
+775 means:  
+7 (owner): read (4) + write (2) + execute (1) = full access.  
+7 (group): same as owner.  
+5 (others): read (4) + execute (1) = can view and run files, but not modify them.  
 This is commonly used for shared directories where team members (in the same group) need to edit files, while others can only view or run them.
 
 <br>
@@ -538,13 +544,15 @@ This is commonly used for shared directories where team members (in the same gro
 ```bash
 sudo chmod 750 company/scripts
 ```
-This one allows the owner and group members of the company to navigate and run scripts in the directory, while preventing others from accessing it entirely.
-Breakdown:
-7 (Owner): The file owner has read (4), write (2), and execute (1) permissions. 
-→ 4 + 2 + 1 = 7
-5 (Group): Group members have read (4) and execute (1) permissions, but no write permission. 
-→ 4 + 0 + 1 = 5
+This one allows the owner and group members of the company to navigate and run scripts in the directory, while preventing others from accessing it entirely.  
+Breakdown:  
+7 (Owner): The file owner has read (4), write (2), and execute (1) permissions.  
+→ 4 + 2 + 1 = 7  
+5 (Group): Group members have read (4) and execute (1) permissions, but no write permission.  
+→ 4 + 0 + 1 = 5  
 0 (Others): All other users have no permissions at all.
+
+<br>
 
 4. Verify permissions
 ```bash
