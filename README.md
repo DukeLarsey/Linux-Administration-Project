@@ -1,10 +1,13 @@
 # Linux Administration Project
 
+
 ### Company Background
 This company is a growing e-commerce support company that provides inventory and order management solutions for small retail businesses. Due to rapid growth, the company recently migrated its systems to AWS using Amazon Linux AMI servers.
 
+
 ### Business Challenge
 The company does not have a dedicated Linux administrator. Multiple employees share server access, files are poorly organized, services stop unexpectedly, and system issues are discovered only after customers complain.
+
 
 ### Linux Admin Role
 In this project we are acting as a Junior Linux Administrator charged with stabilising and securing the environment. Our main responsibilities are to: understand and navigate the Linux environment, organise the system and directory structure, configure user and group management, manage permissions, monitor system health, and automate basic tasks using Linux command-line tools and shell scripting.
@@ -80,6 +83,8 @@ The objective here is to understand the system and identify existing system info
 cat /etc/os-release
 ```
 
+<br>
+
 2. Identify the kernel version
 ```bash
 uname
@@ -88,10 +93,14 @@ uname
 uname -a
 ```
 
+<br>
+
 3. Check the architecture
 ```bash
 arch
 ```
+
+<br>
 
 4. Identify the current user
 ```bash
@@ -101,25 +110,35 @@ Whoami
 id
 ```
 
+<br>
+
 5. Identify the server hostname
 ```bash
 hostname
 ```
+
+<br>
 
 6. Check disk layout
 ```bash
 lsblk
 ```
 
+<br>
+
 7. Check disk usage
 ```bash
 df -h
 ```
 
+<br>
+
 8. Check system memory
 ```bash
 free -m
 ``` 
+
+<br>
 
 ![alt text](<assets/images/7 system discovery.png>)
 ![alt text](<assets/images/8 system discovery.png>)
@@ -135,15 +154,21 @@ The tree command in Linux is a utility that displays the directory structure in 
 sudo apt install tree
 ```
 
+<br>
+
 2. Identify the current directory structure of the system
 ```bash
 tree
 ```
 
+<br>
+
 3. Identify the current directory
 ```bash
 pwd
 ```
+
+<br>
 
 4. View directory contents
 ```bash
@@ -153,10 +178,14 @@ ls
 ls -l
 ```
 
+<br>
+
 5. Create main company directory
 ```bash
 mkdir company
 ```
+
+<br>
 
 6. Create department directories
 ```bash
@@ -177,6 +206,8 @@ mkdir -p company/departments/IT
 mkdir -p company/departments/Finance
 ```
 
+<br>
+
 7. Create shared and administrative directories
 ```bash
 mkdir company/shared
@@ -194,6 +225,8 @@ mkdir company/logs
 mkdir company/docs
 ```
 
+<br>
+
 8. Verify directory structure
 ```bash
 tree
@@ -202,6 +235,8 @@ tree
 ```bash
 ls -R company
 ```
+
+<br>
 
 9. Note: The command to delete a directory: 
 ```bash
@@ -244,6 +279,8 @@ sudo groupadd IT
 sudo groupadd Finance
 ```
 
+<br>
+
 2. To verify the creation of the groups
 ```bash
 getent group Management
@@ -265,10 +302,14 @@ getent group IT
 getent group Finance
 ```
 
+<br>
+
 3. Note: The command to delete a group:
 ```bash
 sudo groupdel groupname   
 ```
+
+<br>
 
 4. Note: The command to display all groups: 
 ```bash
@@ -306,6 +347,8 @@ sudo useradd -m -g Management Management_LukeFletcher
 sudo passwd Management_LukeFletcher
 ```
 
+<br>
+
 2. Sales accounts
 ```bash
 sudo useradd -m -g Sales Sales_KellyLucas
@@ -328,6 +371,8 @@ sudo useradd -m -g Sales Sales_KatiePost
 sudo passwd Sales_KatiePost
 ```
 
+<br>
+
 3. Marketing accounts
 ```bash
 sudo useradd -m -g Marketing Marketing_BernardWolfe
@@ -349,6 +394,8 @@ sudo useradd -m -g Marketing Marketing_GlendaRose
 ```bash
 sudo passwd Marketing_GlendaRose
 ```
+
+<br>
 
 4. IT accounts
 ```bash
@@ -379,6 +426,8 @@ sudo useradd -m -g IT IT_BenjaminFrank
 sudo passwd IT_BenjaminFrank
 ```
 
+<br>
+
 5. Finance accounts
 ```bash
 sudo useradd -m -g Finance Finance_EleanorDonalds
@@ -400,6 +449,8 @@ sudo useradd -m -g Finance Finance_WilliamSkinner
 ```bash
 sudo passwd Finance_WilliamSkinner
 ```
+
+<br>
 
 6. Use the following command to verify the creation of the user accounts. For example, id Management_JohnDoe
 ```bash
@@ -427,6 +478,8 @@ sudo usermod -aG Marketing IT_Admin
 sudo usermod -aG Finance IT_Admin
 ```
 This command adds the user IT_Admin to the management group without removing them from any existing groups. The -aG flag ensures the user is appended to the specified group(s), preserving their current group memberships.
+
+<br>
 
 2. Verify group membership
 ```bash
@@ -466,6 +519,8 @@ Group: Read (4), Write (2), Execute (1) → 4+2+1 = 7
 Others (everyone else): No access → 0 
 So, after running these commands the owner of each directory (company/departments/Sales, /Marketing, etc.) can fully access and modify the contents. Group members can also read, write, and enter the directories. All other users cannot access, view, or modify any files or subdirectories within these directories. This is commonly used to secure department-specific folders in a shared environment where only authorized users (owner and group) should have access.
 
+<br>
+
 2. Shared directory access
 ```bash
 sudo chmod 775 company/shared
@@ -476,6 +531,8 @@ This command changes the permissions of the company/shared directory and all its
 7 (group): same as owner. 
 5 (others): read (4) + execute (1) = can view and run files, but not modify them. 
 This is commonly used for shared directories where team members (in the same group) need to edit files, while others can only view or run them.
+
+<br>
 
 3. Secure scripts directory
 ```bash
@@ -507,14 +564,23 @@ ls -l company
 ```bash
 sudo apt install htop
 ```
+
+<br>
+
 2. Monitor running processes
 ```bash
 top
 ```
+
+<br>
+
 3. View active processes
 ```bash
 ps aux
 ```
+
+<br>
+
 4. Check disk usage
 ```bash
 df -h
