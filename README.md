@@ -534,6 +534,7 @@ The purpose of this command is to restrict access so that only the owner and mem
 - Owner (user): Read (4), Write (2), Execute (1) → 4+2+1 = 7  
 - Group: Read (4), Write (2), Execute (1) → 4+2+1 = 7  
 - Others (everyone else): No access → 0  
+
 So, after running these commands the owner of each directory (company/departments/Sales, /Marketing, etc.) can fully access and modify the contents. Group members can also read, write, and enter the directories. All other users cannot access, view, or modify any files or subdirectories within these directories. This is commonly used to secure department-specific folders in a shared environment where only authorized users (owner and group) should have access.
 
 <br>
@@ -547,6 +548,7 @@ This command changes the permissions of the company/shared directory and all its
 - 7 (owner): read (4) + write (2) + execute (1) = full access.  
 - 7 (group): same as owner.  
 - 5 (others): read (4) + execute (1) = can view and run files, but not modify them.  
+
 This is commonly used for shared directories where team members (in the same group) need to edit files, while others can only view or run them.
 
 <br>
