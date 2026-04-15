@@ -254,6 +254,16 @@ rm -r directory_name
 
 ### User and Group management
 
+This section shows how users and groups can be provisioned manually for each department. In this workflow, both group creation and user onboarding are performed manually by running a sequence of `groupadd`, `useradd`, and `passwd` commands for each department and employee.
+
+This approach may work for very small companies with few employees or departments, but as time goes on, even in a small company, this will not be ideal at all:
+- It will become repetitive and time-consuming as the number of departments and employees grows.
+- It increases the chance of human error (wrong group assignment, typo in usernames, missed account, or inconsistent naming).
+- It does not scale well for frequent onboarding/offboarding.
+
+This section outlines the manual, step-by-step workflow with the necessary commands. You can find solutions that addresses these manual limitations using bash scripting in the final section on "Scripting and automation".
+You can view that section here: [Scripting and automation](#scripting-and-automation)
+
 <br>
 
 ### Create groups for the various departments:
@@ -613,6 +623,15 @@ ls /var/log
 
 ### Scripting and automation
 
+To address the limitations of the manual user creation and management discussed above, one can make use of Bash-based automation for repeatable administration tasks.
+
+Instead of entering every command one-by-one, automation scripts can:
+- Create users from a predictable input format.
+- Improve repeatability by running the same tested logic each time.
+- Reduce onboarding time and typing errors.
+- Provide a clearer operational record of how accounts and resources were provisioned.
+
+A user creation script has been provided in this repository that converts the manual user/group provisioning workflow into a faster, more reliable, and more scalable process.
 
 
 
