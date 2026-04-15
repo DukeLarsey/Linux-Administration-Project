@@ -34,18 +34,18 @@ $ sudo apt-add-repository ppa:fish-shell/release-3
 $ sudo apt-get update && sudo apt-get upgrade
 ```
 
+Caution. This next command below, ($ sudo apt-get install fish) may give a PAM error. If you get that error when you run the command, use the next command instead.
 ```bash
 $ sudo apt-get install fish
 ```
 
 ```bash
-Caution. This command may give a PAM error. If that is the case, use the next command instead.
 $ sudo chsh -s /usr/local/bin/fish
 ```
 
+This command sets Fish Shell as the Default Shell:
 ```bash
 $ chsh --shell /usr/bin/fish username
-This sets Fish Shell as the Default Shell.
 ```
 
 <br>
@@ -67,7 +67,7 @@ This sets Fish Shell as the Default Shell.
 
 <br>
 
-6. You can also check with
+6. You can also check with:
 ```bash
 echo $SHELL 
 ```
@@ -78,14 +78,14 @@ echo $SHELL
 ### System discovery
 The objective here is to understand the system and identify existing system info before making any changes.
 
-1. First identify the Linux distribution
+1. First identify the Linux distribution:
 ```bash
 cat /etc/os-release
 ```
 
 <br>
 
-2. Identify the kernel version
+2. Identify the kernel version:
 ```bash
 uname
 ```
@@ -95,14 +95,14 @@ uname -a
 
 <br>
 
-3. Check the architecture
+3. Check the architecture:
 ```bash
 arch
 ```
 
 <br>
 
-4. Identify the current user
+4. Identify the current user:
 ```bash
 Whoami
 ```
@@ -112,28 +112,28 @@ id
 
 <br>
 
-5. Identify the server hostname
+5. Identify the server hostname:
 ```bash
 hostname
 ```
 
 <br>
 
-6. Check disk layout
+6. Check disk layout:
 ```bash
 lsblk
 ```
 
 <br>
 
-7. Check disk usage
+7. Check disk usage:
 ```bash
 df -h
 ```
 
 <br>
 
-8. Check system memory
+8. Check system memory:
 ```bash
 free -m
 ``` 
@@ -149,28 +149,28 @@ free -m
 Here, we are going to build the company workspace by creating the main company directory and directories for the various departments in the company
 
 1. First, install the tree command
-The tree command in Linux is a utility that displays the directory structure in a tree-like, hierarchical format, making it easy to visualize the organization of files and subdirectories.
+The tree command in Linux is a utility that displays the directory structure in a tree-like, hierarchical format, making it easy to visualize the organization of files and subdirectories:
 ```bash
 sudo apt install tree
 ```
 
 <br>
 
-2. Identify the current directory structure of the system
+2. Identify the current directory structure of the system:
 ```bash
 tree
 ```
 
 <br>
 
-3. Identify the current directory
+3. Identify the current directory:
 ```bash
 pwd
 ```
 
 <br>
 
-4. View directory contents
+4. View directory contents:
 ```bash
 ls
 ```
@@ -180,14 +180,14 @@ ls -l
 
 <br>
 
-5. Create main company directory
+5. Create main company directory:
 ```bash
 mkdir company
 ```
 
 <br>
 
-6. Create department directories
+6. Create department directories:
 ```bash
 mkdir -p company/departments/Management
 ```
@@ -208,7 +208,7 @@ mkdir -p company/departments/Finance
 
 <br>
 
-7. Create shared and administrative directories
+7. Create shared and administrative directories:
 ```bash
 mkdir company/shared
 ```
@@ -227,7 +227,7 @@ mkdir company/docs
 
 <br>
 
-8. Verify directory structure
+8. Verify directory structure:
 ```bash
 tree
 ```
@@ -238,7 +238,7 @@ ls -R company
 
 <br>
 
-9. Note: The command to delete a directory: 
+9. Note: The command to delete a directory:
 ```bash
 rm -r directory_name
 ```
@@ -258,7 +258,7 @@ rm -r directory_name
 
 ### Create groups for the various departments:
 
-1. Create department groups
+1. Create department groups:
 ```bash
 sudo groupadd Management
 ```
@@ -281,7 +281,7 @@ sudo groupadd Finance
 
 <br>
 
-2. To verify the creation of the groups
+2. To verify the creation of the groups:
 ```bash
 getent group Management
 ```
@@ -329,7 +329,7 @@ sudo passwd sets their password.
 
 <br>
 
-1. Management accounts
+1. Management accounts:
 ```bash
 sudo useradd -m -g Management Management_JohnDoe
 ```
@@ -353,7 +353,7 @@ sudo passwd Management_LukeFletcher
 
 <br>
 
-2. Sales accounts
+2. Sales accounts:
 ```bash
 sudo useradd -m -g Sales Sales_KellyLucas
 ```
@@ -377,7 +377,7 @@ sudo passwd Sales_KatiePost
 
 <br>
 
-3. Marketing accounts
+3. Marketing accounts:
 ```bash
 sudo useradd -m -g Marketing Marketing_BernardWolfe
 ```
@@ -401,7 +401,7 @@ sudo passwd Marketing_GlendaRose
 
 <br>
 
-4. IT accounts
+4. IT accounts:
 ```bash
 sudo useradd -m -g IT IT_Admin
 ```
@@ -432,7 +432,7 @@ sudo passwd IT_BenjaminFrank
 
 <br>
 
-5. Finance accounts
+5. Finance accounts:
 ```bash
 sudo useradd -m -g Finance Finance_EleanorDonalds
 ```
@@ -468,7 +468,7 @@ id “userAccountName”
 <br>
 
 ### Additional Group Access Configuration
-1. Configure the IT_Admin account to have access to the other department groups.
+1. Configure the IT_Admin account to have access to the other department groups:
 ```bash
 sudo usermod -aG Management IT_Admin
 ```
@@ -481,11 +481,11 @@ sudo usermod -aG Marketing IT_Admin
 ```bash
 sudo usermod -aG Finance IT_Admin
 ```
-This command adds the user IT_Admin to the management group without removing them from any existing groups. The -aG flag ensures the user is appended to the specified group(s), preserving their current group memberships.
+This command adds the user IT_Admin to the other groups without removing them from any existing groups. The -aG flag ensures the user is appended to the specified group(s), preserving their current group memberships.
 
 <br>
 
-2. Verify group membership
+2. Verify group membership:
 ```bash
 groups IT_Admin
 ```
@@ -503,7 +503,7 @@ After successfully completing these steps, we should have a company directory st
 <br>
 
 ### Permissions
-1. Restrictions for department directories
+1. Restrictions for department directories:
 ```bash
 sudo chmod 770 company/departments/Management
 ```
@@ -528,7 +528,7 @@ So, after running these commands the owner of each directory (company/department
 
 <br>
 
-2. Shared directory access
+2. Shared directory access:
 ```bash
 sudo chmod 775 company/shared
 ```
@@ -541,7 +541,7 @@ This is commonly used for shared directories where team members (in the same gro
 
 <br>
 
-3. Secure scripts directory
+3. Secure scripts directory:
 ```bash
 sudo chmod 750 company/scripts
 ```
@@ -555,7 +555,7 @@ Breakdown:
 
 <br>
 
-4. Verify permissions
+4. Verify permissions:
 ```bash
 ls -l company/departments
 ```
@@ -569,28 +569,28 @@ ls -l company
 <br>
 
 ### System monitoring
-1. Install system monitoring tool
+1. Install system monitoring tool:
 ```bash
 sudo apt install htop
 ```
 
 <br>
 
-2. Monitor running processes
+2. Monitor running processes:
 ```bash
 top
 ```
 
 <br>
 
-3. View active processes
+3. View active processes:
 ```bash
 ps aux
 ```
 
 <br>
 
-4. Check disk usage
+4. Check disk usage:
 ```bash
 df -h
 ``` 
@@ -603,7 +603,7 @@ df -h
 <br>
 
 ### Logs overview
-1. List log files
+1. List log files:
 ```bash
 ls /var/log
 ```
