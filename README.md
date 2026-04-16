@@ -563,7 +563,7 @@ Breakdown:
 → 4 + 2 + 1 = 7  
 - 5 (Group): Group members have read (4) and execute (1) permissions, but no write permission.  
 → 4 + 0 + 1 = 5  
-0 (Others): All other users have no permissions at all.
+- 0 (Others): All other users have no permissions at all.
 
 <br>
 
